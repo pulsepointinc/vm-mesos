@@ -1,0 +1,6 @@
+---
+- hosts: mesos-slave
+  gather_facts: no
+  tasks:
+    - include: roles/docker/handlers/main.yml
+    - include: roles/mesos-slave/handlers/main.yml

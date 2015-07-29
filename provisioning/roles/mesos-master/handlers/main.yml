@@ -1,0 +1,9 @@
+---
+
+- name: "restart mesos-master"
+  service: name={{ item }} enabled=yes state=restarted
+  with_items:
+    - zookeeper
+    - mesos-master
+    - chronos
+    - marathon

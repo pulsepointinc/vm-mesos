@@ -1,0 +1,57 @@
+---
+
+- name: "install zookeeper, marathon, and chronos"
+  yum: name={{ item }} state=present
+  with_items:
+    - marathon
+    - mesosphere-zookeeper
+    - chronos
+
+- name: "configure zookeeper myid"
+  copy: content="{{ zk_myid }}" 
+        dest=/var/lib/zookeeper/myid
+        owner=root
+        group=root
+        mode=0644
+
+- name: "configure zoo.cfg"
+  template: src=etc/zookeeper/conf/zoo.cfg
+            dest=/etc/zookeeper/conf/zoo.cfg
+            owner=root
+            group=root
+            mode=0644
+
+- name: "configure mesos-master quorum"
+  copy: content="2"
+        dest=/etc/mesos-master/quorum
+        owner=root
+        group=root
+        mode=0644
+
+- name: "configure mesos master hostname"
+  copy: content="{{ mesos_hostname }}"
+        dest=/etc/mesos-master/hostname
+        owner=root
+        group=root
+        mode=0644
+
+- name: "configure mesos master ip"
+  copy: content="{{ mesos_ip }}"
+        dest=/etc/mesos-master/ip
+        owner=root
+        group=root
+        mode=0644
+
+- name: "create /etc/marathon/conf"
+  file: path=/etc/marathon/conf
+        state=directory
+        owner=root
+        group=root
+        mode=0644
+
+- name: "configure marathon hostname"
+  copy: content="{{ mesos_hostname }}"
+        dest=/etc/marathon/conf/hostname
+        owner=root
+        group=root
+        mode=0644

@@ -1,0 +1,5 @@
+---
+- hosts: mesos-master
+  gather_facts: no
+  tasks:
+    - include: roles/mesos-master/handlers/main.yml

@@ -1,0 +1,12 @@
+- name: "install mesosphere repo"
+  yum: name="http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm" state=present
+
+- name: "install mesos"
+  yum: name=mesos state=present
+
+- name: "configure /etc/mesos/zk"
+  copy: content="zk://{% for host in groups['mesos-master'] %}{{ hostvars[host]['mesos_ip'] }}:2181{% if not loop.last %},{% endif %}{% endfor %}/mesos"
+        dest=/etc/mesos/zk
+        owner=root
+        group=root
+        mode=0644

@@ -1,0 +1,5 @@
+---
+- hosts: mesos-slave
+  gather_facts: no
+  roles:
+    - mesos-slave

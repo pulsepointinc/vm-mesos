@@ -1,0 +1,24 @@
+---
+
+- name: "configure /etc/mesos-slave/containerizers"
+  copy: content="docker,mesos"
+        dest=/etc/mesos-slave/containerizers
+        owner=root
+        group=root
+        mode=0644
+  notify:
+    - "restart mesos-slave"
+
+- name: "configure mesos slave hostname"
+  copy: content="{{ mesos_hostname }}" 
+        dest=/etc/mesos-slave/hostname
+        owner=root
+        group=root
+        mode=0644
+
+- name: "configure mesos slave ip"
+  copy: content="{{ mesos_ip }}"
+        dest=/etc/mesos-slave/ip
+        owner=root
+        group=root
+        mode=0644

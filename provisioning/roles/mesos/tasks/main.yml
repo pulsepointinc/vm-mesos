@@ -10,3 +10,10 @@
         owner=root
         group=root
         mode=0644
+
+- name: "env: LIBPROCESS_IP"
+  copy: content="export LIBPROCESS_IP={{ mesos_ip }}"
+        dest=/etc/profile.d/mesos_libprocess_ip.sh
+        owner=root
+        group=root
+        mode=0644

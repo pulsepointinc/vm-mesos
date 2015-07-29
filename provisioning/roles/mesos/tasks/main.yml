@@ -5,7 +5,7 @@
   yum: name=mesos state=present
 
 - name: "configure /etc/mesos/zk"
-  copy: content="zk://{% for host in groups['mesos-master'] %}{{ hostvars[host]['mesos_ip'] }}:2181{% if not loop.last %},{% endif %}{% endfor %}/mesos"
+  copy: content="zk://{% for host in groups['mesos-master'] %}{{ hostvars[host]['mesos_hostname'] }}:2181{% if not loop.last %},{% endif %}{% endfor %}/mesos"
         dest=/etc/mesos/zk
         owner=root
         group=root

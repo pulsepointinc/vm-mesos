@@ -28,6 +28,11 @@ Vagrant.configure(2) do |config|
       config.vm.hostname = "mm#{n}"
       config.vm.network :private_network, ip: "10.12.12.1#{n}"
     end
+    config.vm.provision :ansible do |ansible|
+      ansible.playbook = "provisioning/vm.yml"
+      ansible.inventory_path = "provisioning/hosts"
+      ansible.sudo = true
+    end
     config.vm.provision :ansible do |ansible| 
       ansible.playbook = "provisioning/site.yml"
       ansible.inventory_path = "provisioning/hosts"
@@ -40,6 +45,11 @@ Vagrant.configure(2) do |config|
     config.vm.define "ms#{n}" do |config|
       config.vm.hostname = "ms#{n}"
       config.vm.network :private_network, ip: "10.12.12.2#{n}"
+    end
+    config.vm.provision :ansible do |ansible|
+      ansible.playbook = "provisioning/vm.yml"
+      ansible.inventory_path = "provisioning/hosts"
+      ansible.sudo = true
     end
     config.vm.provision :ansible do |ansible|
       ansible.playbook = "provisioning/site.yml"

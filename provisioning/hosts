@@ -1,9 +1,9 @@
 [mesos-master]
-mm1 mesos_hostname=10.12.12.11 mesos_ip=10.12.12.11 zk_myid=1
-mm2 mesos_hostname=10.12.12.12 mesos_ip=10.12.12.12 zk_myid=2
-mm3 mesos_hostname=10.12.12.13 mesos_ip=10.12.12.13 zk_myid=3
+mm1 mesos_hostname=mm1 mesos_ip=10.12.12.11 zk_myid=1
+mm2 mesos_hostname=mm2 mesos_ip=10.12.12.12 zk_myid=2
+mm3 mesos_hostname=mm3 mesos_ip=10.12.12.13 zk_myid=3
 
 [mesos-slave]
-ms1 mesos_hostname=10.12.12.21 mesos_ip=10.12.12.21
-ms2 mesos_hostname=10.12.12.22 mesos_ip=10.12.12.22
-ms3 mesos_hostname=10.12.12.23 mesos_ip=10.12.12.23
+ms1 mesos_hostname=ms1 mesos_ip=10.12.12.21
+ms2 mesos_hostname=ms2 mesos_ip=10.12.12.22
+ms3 mesos_hostname=ms3 mesos_ip=10.12.12.23

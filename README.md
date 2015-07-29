@@ -30,7 +30,7 @@ And finally, start up the master node services.
 
     ansible-playbook -i provisioning/hosts -s provisioning/restart-mesos-master.yml 
 
-The slave nodes are started during the original provisioning. We delay the master startup because the []Mesosphere quickstart](http://open.mesosphere.com/getting-started/datacenter/install/) states:
+The slave nodes are started during the original provisioning. We delay the master startup because the [Mesosphere quickstart](http://open.mesosphere.com/getting-started/datacenter/install/) states:
 
 > You need to bring each service up on the set of master nodes at roughly the same time.
 

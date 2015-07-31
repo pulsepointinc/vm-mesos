@@ -1,3 +1,6 @@
+- name: "disable firewalld"
+  service: name=firewalld enabled=no state=stopped
+
 - name: "install mesosphere repo"
   yum: name="http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.noarch.rpm" state=present
 
